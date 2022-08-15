@@ -1,37 +1,60 @@
 import Link from "next/link";
-import SearchIcon from '@mui/icons-material/Search';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import { SearchIcon } from "@heroicons/react/solid";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import {useState, useEffect} from 'react'
 
 function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true)
+            } else {
+                setIsScrolled(false)
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
   return (
-    <header className="bg-gradient-to-b from-neutral-800  items-center h-16 flex text-white">
-      <div className="flex items-center mx-16 basis-full">
-        <div className="flex basis-2/3 space-x-8">
+    <header className={`${isScrolled && "bg-[#141414]"}`}>
+      <div className="flex items-center basis-full md:mx-4 lg:mx-7">
+        <div className="flex basis-3/4 space-x-8">
           <img
             src="https://rb.gy/ulxxee"
-            width={100}
-            height={100}
-            className="cursor-pointer object-contain"
+            width={80}
+            className="cursor-pointer object-contain lg:w-28"
           />
-          <ul className="flex space-x-4 font-light">
-            <li className="font-semibold">Home</li>
-            <li>TV Shows</li>
-            <li>Movies</li>
-            <li>New & Popular</li>
-            <li>My List</li>
-            <li>Browse by Languages</li>
+          <ul className="hidden space-x-2.5 md:flex lg:space-x-5">
+            <li className="cursor-default font-semibold headerLink">Home</li>
+            <li className="headerLink">TV Shows</li>
+            <li className="headerLink">Movies</li>
+            <li className="headerLink">New & Popular</li>
+            <li className="headerLink">My List</li>
+            <li className="headerLink">Browse by Languages</li>
           </ul>
         </div>
-        <div className="flex justify-end items-center basis-1/3 space-x-5">
-          <SearchIcon className="w-6 h-6" />
-          <Link href={"/Kids"}>Kids</Link>
-          <NotificationsNoneIcon className="w-6 h-6" />
+        <div className="flex justify-end items-center basis-1/4 space-x-5">
+          <SearchIcon className="w-5 lg:w-6" />
+          <div className="hidden lg:inline">
+            <Link href={"/Kids"}>Kids</Link>
+          </div>
+          <NotificationsNoneIcon className="w-5 lg:w-6" />
           <Link href="/account">
-            <img
-              src="https://rb.gy/g1pwyx"
-              alt=""
-              className="cursor-pointer rounded"
-            />
+            <div className="flex items-center w-6 lg:w-10">
+              <img
+                src="https://rb.gy/g1pwyx"
+                alt=""
+                className="cursor-pointer rounded"
+              />
+              <ArrowDropDownIcon className="hidden md:inline" />
+            </div>
           </Link>
         </div>
       </div>
