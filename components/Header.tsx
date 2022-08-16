@@ -2,26 +2,26 @@ import Link from "next/link";
 import { SearchIcon } from "@heroicons/react/solid";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 function Header() {
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setIsScrolled(true)
-            } else {
-                setIsScrolled(false)
-            }
-        }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
-        window.addEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [])
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center basis-full md:mx-4 lg:mx-7">

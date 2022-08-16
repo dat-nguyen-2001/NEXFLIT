@@ -35,8 +35,8 @@ const Home = ({
       </Head>
 
       <Header />
-      <main>
-        <Banner />
+      <main className="relative ">
+        <Banner netflixOriginals = {netflixOriginals}/>
         <section>{/* <Row go here /> */}</section>
       </main>
     </div>
@@ -65,8 +65,6 @@ export async function getServerSideProps() {
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ]);
-
-  console.log(netflixOriginals);
 
   return {
     props: {
