@@ -1,8 +1,8 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import { Movie } from "../typing";
+import Row from "../components/Row";
 
 import requests from "../utils/request";
 
@@ -28,16 +28,25 @@ const Home = ({
   documentaries,
 }: Props) => {
   return (
-    <div className="relative h-[200vh] bg-gradient-to-b from-gray-900/10 to-[#010511]">
+    <div className="relative">
       <Head>
         <title>Home - Nexflit</title>
         <link rel="icon" href="/icon.png" />
       </Head>
 
       <Header />
-      <main className="relative ">
-        <Banner netflixOriginals = {netflixOriginals}/>
-        <section>{/* <Row go here /> */}</section>
+      <main className="relative">
+        <Banner netflixOriginals={netflixOriginals} />
+        <section className="absolute top-[50vw] sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 pl-5 md:pl-8 lg:pl-16">
+          <Row genre={"Netflix Original"} movies={netflixOriginals} />
+          <Row genre={"Trending Now"} movies={trendingNow} />
+          <Row genre={"Top Rated"} movies={topRated} />
+          <Row genre={"Action Movies"} movies={actionMovies} />
+          <Row genre={"Comedy Movies"} movies={comedyMovies} />
+          <Row genre={"Horror Movies"} movies={horrorMovies} />
+          <Row genre={"Romance Movies"} movies={romanceMovies} />
+          <Row genre={"Documentaries"} movies={documentaries} />
+        </section>
       </main>
     </div>
   );
