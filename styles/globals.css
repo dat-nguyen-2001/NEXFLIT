@@ -15,4 +15,8 @@
   .headerLink {
     @apply cursor-pointer flex items-center text-xs font-medium lg:text-sm text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3];
   }
+
+  .scrollBtn {
+    @apply absolute m-auto w-12 h-[100%] top-0 bottom-0 cursor-pointer z-50 hidden group-hover:inline bg-black/50 hover:bg-black/75 
+  }
 }

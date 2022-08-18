@@ -34,14 +34,14 @@ function Banner({ netflixOriginals }: Props) {
             movie?.original_title}
         </h1>
         <p className="text-[1.5vw] ">{movie?.overview.substr(0, 200)}</p>
-        <div className="flex items-center text-center text-[2vw] space-x-3  sm:space-y-0 sm:space-x-3 md:text-xl">
-          <button className="flex items-center gap-x-[1vw] px-[1.5vw] py-[.3vw] rounded bg-white text-black text-bold">
-            <PlayArrowIcon className="w-[2vw] md:w-5" />
-            Play
+        <div className="flex items-center text-[2vw] space-x-3  sm:space-y-0 sm:space-x-3 md:text-xl">
+          <button className="flex items-center place-items-center gap-x-1 px-[1.5vw] py-[.3vw] rounded bg-white text-black font-semibold opacity-80 hover:opacity-100">
+            <PlayArrowIcon className="w-5" />
+            <p className="md:h-[32px]">Play</p>
           </button>
-          <button className="flex items-center gap-x-[1vw] px-[1.5vw] py-[.3vw] rounded bg-[rgba(110,111,108,255)]/70 text-bold">
+          <button className="flex items-center gap-x-1 px-[1.5vw] py-[.3vw] rounded bg-[rgba(110,111,108,255)] opacity-80 hover:opacity-100 font-semibold">
             <InfoOutlinedIcon className="w-5" />
-            More Info
+            <p className="md:h-[32px]">More Info</p>
           </button>
         </div>
       </div>
