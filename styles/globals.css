@@ -25,15 +25,18 @@
   }
 
   .footerLink {
-    @apply text-[.8rem] mt-[20px] mr-auto px-[4%] text-[#808080] cursor-pointer md:basis-[25%] basis-[50%]
+    @apply text-[.8rem] mt-[20px] mr-auto px-[4%] text-[#808080] cursor-pointer md:basis-[25%] basis-[50%];
   }
 
   .footerSpan {
-    @apply hover:border-b-[#808080] hover:border-b-[1px]
+    @apply hover:border-b-[#808080] hover:border-b-[1px];
   }
 
   .socialMedia {
-    @apply w-10 h-10 cursor-pointer
+    @apply w-8 h-8 cursor-pointer;
+  }
 
+  .input {
+    @apply w-full rounded bg-[#333333] px-5 py-3.5 placeholder-[gray] outline-none focus:bg-[#454545];
   }
 }
