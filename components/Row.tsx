@@ -13,7 +13,7 @@ interface Props {
 function Row({ genre, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
   const [scrolling, setScrolling] = useState(false);
-  const clickHandler = (direction: string) => {
+  const scroll = (direction: string) => {
     setScrolling(true);
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
@@ -28,9 +28,9 @@ function Row({ genre, movies }: Props) {
   };
   return (
     <div className="text-white text-sm font-semibold md:text-base lg:text-xl">
-      <h2 className="flex space-x-2 items-center mb-3">
+      <h2 className="group flex space-x-2 items-center mb-3 cursor-pointer">
         <div>{genre}</div>
-        <div className="hidden text-xs items-center">
+        <div className="hidden text-[.6rem] md:text-[.7rem] lg:text-xs text-blue-400 items-center group-hover:flex">
           <div>Explore All</div>
           <div>
             <ChevronRightOutlinedIcon />
@@ -41,7 +41,7 @@ function Row({ genre, movies }: Props) {
         {scrolling ? (
           <ChevronLeftIcon
             className={`scrollBtn left-0`}
-            onClick={() => clickHandler("left")}
+            onClick={() => scroll("left")}
           />
         ) : null}
         <div
@@ -54,7 +54,7 @@ function Row({ genre, movies }: Props) {
         </div>
         <ChevronRightIcon
           className={`scrollBtn right-0`}
-          onClick={() => clickHandler("right")}
+          onClick={() => scroll("right")}
         />
       </div>
     </div>

@@ -17,6 +17,23 @@
   }
 
   .scrollBtn {
-    @apply absolute m-auto w-12 h-[100%] top-0 bottom-0 cursor-pointer z-50 hidden group-hover:inline bg-black/50 hover:bg-black/75 
+    @apply absolute m-auto w-12 h-[100%] top-0 bottom-0 cursor-pointer z-50 hidden group-hover:inline bg-black/50 hover:bg-black/75;
+  }
+
+  .bannerBtn {
+    @apply flex items-center gap-x-1 px-[1.5vw] py-[.3vw] rounded font-semibold opacity-80 hover:opacity-100;
+  }
+
+  .footerLink {
+    @apply text-[.8rem] mt-[20px] mr-auto px-[4%] text-[#808080] cursor-pointer md:basis-[25%] basis-[50%]
+  }
+
+  .footerSpan {
+    @apply hover:border-b-[#808080] hover:border-b-[1px]
+  }
+
+  .socialMedia {
+    @apply w-10 h-10 cursor-pointer
+
   }
 }

@@ -5,6 +5,7 @@ import { Movie } from "../typing";
 import Row from "../components/Row";
 
 import requests from "../utils/request";
+import Footer from "../components/Footer";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -37,7 +38,7 @@ const Home = ({
       <Header />
       <main className="relative">
         <Banner netflixOriginals={netflixOriginals} />
-        <section className="absolute top-[50vw] sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 pl-5 md:pl-8 lg:pl-16">
+        <section className="absolute top-[50vw] sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 pl-5 md:pl-8 lg:pl-16 pb-[20px]">
           <Row genre={"Netflix Original"} movies={netflixOriginals} />
           <Row genre={"Trending Now"} movies={trendingNow} />
           <Row genre={"Top Rated"} movies={topRated} />
@@ -46,6 +47,7 @@ const Home = ({
           <Row genre={"Horror Movies"} movies={horrorMovies} />
           <Row genre={"Romance Movies"} movies={romanceMovies} />
           <Row genre={"Documentaries"} movies={documentaries} />
+        <Footer />
         </section>
       </main>
     </div>

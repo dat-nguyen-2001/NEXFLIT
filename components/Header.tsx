@@ -15,9 +15,7 @@ function Header() {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -26,12 +24,12 @@ function Header() {
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center basis-full md:mx-4 lg:mx-7">
         <div className="flex basis-4/5 space-x-8">
-          <Link href={'/'}>
-          <img
-            src="https://rb.gy/ulxxee"
-            width={50}
-            className="cursor-pointer object-contain lg:w-28 md:w-20 sm:w-16"
-          />
+          <Link href={"/"}>
+            <img
+              src="https://rb.gy/ulxxee"
+              width={50}
+              className="cursor-pointer object-contain lg:w-28 md:w-20 sm:w-16"
+            />
           </Link>
           <ul className="hidden space-x-2.5 md:flex lg:space-x-5">
             <li className="cursor-default font-semibold headerLink">Home</li>
@@ -47,7 +45,7 @@ function Header() {
           <div className="hidden lg:inline">
             <Link href={"/Kids"}>Kids</Link>
           </div>
-          <NotificationsNoneIcon className=" cursor-pointer hidden lg:inline w-5 lg:w-6" />
+          <NotificationsNoneIcon className="cursor-pointer hidden lg:inline w-5 lg:w-6" />
           <Link href="/account">
             <div className="flex items-center w-6 lg:w-10">
               <img
