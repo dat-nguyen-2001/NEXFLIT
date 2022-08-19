@@ -2,9 +2,11 @@ import Link from "next/link";
 import { SearchIcon } from "@heroicons/react/solid";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../stores/AuthContext";
 
 function Header() {
+  const {logOut} = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -52,6 +54,7 @@ function Header() {
                 src="https://rb.gy/g1pwyx"
                 alt=""
                 className="cursor-pointer rounded"
+                onClick={logOut}
               />
               <ArrowDropDownIcon className="hidden md:inline" />
             </div>

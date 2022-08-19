@@ -47,12 +47,14 @@ export const AuthProvider = ({ children }: Props) => {
 
   const [user, setUser] = useState<User | null>(null);
 
+
+
   const signIn = async (email: string, password: string) => {
     setLoading(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
-        router.replace("/");
+        router.replace("/browse");
       })
       .then(() => setLoading(false))
       .catch((err) => setError(err))
@@ -64,7 +66,7 @@ export const AuthProvider = ({ children }: Props) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
-        router.push("/");
+        router.push("/browse");
       })
       .then(() => setLoading(false))
       .catch((err) => setError(err))

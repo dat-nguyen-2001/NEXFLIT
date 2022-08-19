@@ -20,7 +20,8 @@ function LoginForm() {
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     signIn(email, password);
     if(error) {
-      alert(error)
+      alert(error);
+      return;
     }
   };
 

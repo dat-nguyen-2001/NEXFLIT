@@ -1,7 +1,11 @@
 import Link from "next/link";
 import LoginForm from "../components/LoginForm";
 import SideFooter from "../components/SideFooter";
+import { AuthContext } from "../stores/AuthContext";
+import {useContext, useEffect} from 'react'
+import {useRouter} from 'next/router'
 function login() {
+  
   return (
     <div>
       <div className="relative top-0 z-50">
@@ -10,7 +14,7 @@ function login() {
         <Link href={"/"}>
           <img
             src="https://rb.gy/ulxxee"
-            className="absolute top-5 left-10 cursor-pointer object-contain w-[180px]"
+            className="absolute top-5 left-16 cursor-pointer object-contain w-[170px]"
           />
         </Link>
 
