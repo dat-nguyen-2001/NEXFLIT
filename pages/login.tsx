@@ -14,11 +14,12 @@ function login() {
           />
         </Link>
 
+        <div className="absolute top-[15vh] w-[90vw] left-[3vw] sm:w-[60vw] sm:left-[19vw] lg:max-w-[500px] lg:left-[28vw] 2xl:w-[30vw] 2xl:left-[33.5vw]">
+          <LoginForm />
+        </div>
+
         <div className="bg-black/70 absolute top-[100vh] h-[20vh] w-[98.9vw] px-[10vw]">
           <SideFooter />
-        </div>
-        <div className="absolute top-[25vh] w-[25vw] left-[35vw]">
-          <LoginForm />
         </div>
 
         <div>
