@@ -13,7 +13,7 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null);
   useEffect(() => {
     setMovie(
-      netflixOriginals[2]
+      netflixOriginals[3]
     );
   }, []);
 

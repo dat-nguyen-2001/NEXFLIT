@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SideFooter from "../components/SideFooter";
+import SignUpBar from "../components/SignUpBar";
 
 function index() {
   return (
@@ -15,18 +16,24 @@ function index() {
           </Link>
           <div className="basis-11/12 flex justify-end">
             <Link href={"/login"}>
-              <button className="w-[70px] h-[30px] md:w-[100px] md:h-[40px] bg-red-700 rounded">Sign In</button>
+              <button className="w-[70px] h-[30px] md:w-[100px] md:h-[40px] bg-red-700 rounded">
+                Sign In
+              </button>
             </Link>
           </div>
         </div>
-        <div className="bg-black/70 absolute top-[100vh] h-[20vh] w-[98.9vw] px-[10vw]">
+        <div className="absolute top-[45vh] left-[2vw] xs:left-[10vw]  xs:w-[80vw]">
+          <SignUpBar />
+        </div>
+
+        <div className="bg-black/70 absolute top-[100vh] h-[20vh] w-[97vw] xs:w-[98.9vw] px-[10vw]">
           <SideFooter />
         </div>
 
         <div>
           <img
             src="https://assets.nflxext.com/ffe/siteui/vlv3/0f07b807-7be1-457d-be88-eb9153d5d4e9/c9061c43-8a1d-46b1-a5e4-9b6faddf4536/VN-en-20220815-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            className="min-w-[1600px] h-[100vh]"
+            className="min-w-[98.9vw] h-[100vh]"
           />
         </div>
       </div>
