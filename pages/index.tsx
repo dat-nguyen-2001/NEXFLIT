@@ -22,7 +22,8 @@ function index() {
             </Link>
           </div>
         </div>
-        <div className="absolute top-[45vh] left-[2vw] xs:left-[10vw]  xs:w-[80vw]">
+
+        <div className="absolute top-[25vh] w-screen md:top-[20vh]">
           <SignUpBar />
         </div>
 
@@ -30,10 +31,10 @@ function index() {
           <SideFooter />
         </div>
 
-        <div>
+        <div className="w-[100%] overflow-hidden">
           <img
             src="https://assets.nflxext.com/ffe/siteui/vlv3/0f07b807-7be1-457d-be88-eb9153d5d4e9/c9061c43-8a1d-46b1-a5e4-9b6faddf4536/VN-en-20220815-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            className="min-w-[98.9vw] h-[100vh]"
+            className="min-w-[1100px] h-[100vh] w-[100%]"
           />
         </div>
       </div>

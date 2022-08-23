@@ -1,7 +1,7 @@
-import { signInAnonymously } from "firebase/auth";
 import { useState, useEffect, useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { AuthContext } from "../stores/AuthContext";
+import Link from "next/link";
 
 interface Inputs {
   email: string;
@@ -9,17 +9,13 @@ interface Inputs {
 }
 
 function LoginForm() {
-  const { user, signIn, signUp, logOut, error, loading } =useContext(AuthContext);
+  const { signIn, error } = useContext(AuthContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     signIn(email, password);
-    if(error) {
+    if (error) {
       alert(error);
       return;
     }
@@ -73,13 +69,15 @@ function LoginForm() {
       </button>
       <div className="text-[gray]">
         New to Netflix?{" "}
-        <button
-          className="cursor-pointer text-white hover:underline"
-          // onClick={() => setLogin(false)}
-          type="submit"
-        >
-          Sign up now
-        </button>
+        <Link href={"/"}>
+          <button
+            className="cursor-pointer text-white hover:underline"
+            // onClick={() => setLogin(false)}
+            type="submit"
+          >
+            Sign up now
+          </button>
+        </Link>
       </div>
     </form>
   );

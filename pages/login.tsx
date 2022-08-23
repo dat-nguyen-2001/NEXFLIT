@@ -1,9 +1,7 @@
 import Link from "next/link";
 import LoginForm from "../components/LoginForm";
 import SideFooter from "../components/SideFooter";
-import { AuthContext } from "../stores/AuthContext";
-import {useContext, useEffect} from 'react'
-import {useRouter} from 'next/router'
+
 function login() {
   
   return (
