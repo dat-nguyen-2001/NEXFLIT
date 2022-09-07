@@ -17,7 +17,7 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null);
   useEffect(() => {
     setMovie(
-      netflixOriginals[3]
+      netflixOriginals[8]
     );
   }, []);
 
@@ -39,11 +39,11 @@ function Banner({ netflixOriginals }: Props) {
         <p className="text-[1.4vw] ">{movie?.overview.substr(0, 180)}</p>
         <div className="flex items-center text-[2vw] space-x-3  sm:space-y-0 sm:space-x-3 md:text-xl">
           <button className="bannerBtn bg-white text-black">
-            <PlayArrowIcon className="w-5" />
+            <PlayArrowIcon className="w-7 h-7" />
             <p className="md:h-[32px]">Play</p>
           </button>
           <button className="bannerBtn  bg-[rgba(110,111,108,255)]">
-            <InfoOutlinedIcon className="w-5" />
+            <InfoOutlinedIcon className="w-7 h-7" />
             <p className="md:h-[32px]" onClick={() => {setShowModal(true); setCurrentMovie(movie)}}>More Info</p>
           </button>
         </div>

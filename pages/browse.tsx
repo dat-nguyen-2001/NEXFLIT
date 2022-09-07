@@ -33,13 +33,13 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
-  // const { user } = useContext(AuthContext);
-  // const router = useRouter();
-  // useEffect(() => {
-  //   if (!user) {
-  //     router.replace("/login");
-  //   }
-  // }, [user]);
+  const { user } = useContext(AuthContext);
+  const router = useRouter();
+  useEffect(() => {
+    if (!user) {
+      router.replace("/login");
+    }
+  }, [user]);
 
   const showModal = useRecoilValue(modalState)
 
@@ -65,7 +65,9 @@ const Home = ({
           <Footer />
         </section>
       </main>
+      <div>
         {showModal && <Modal />}
+      </div>
     </div>
   );
 };

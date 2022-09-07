@@ -1,11 +1,16 @@
 import Link from "next/link";
 import LoginForm from "../components/LoginForm";
 import SideFooter from "../components/SideFooter";
+import Head from "next/head";
 
 function login() {
-  
+
   return (
     <div>
+      <Head>
+        <title>Nexflit</title>
+        <link rel="icon" href="/icon.png" />
+      </Head>
       <div className="relative top-0 z-50">
         <div className="bg-black/50 absolute top-0 left-0 w-[98.9vw] h-[120vh]"></div>
 

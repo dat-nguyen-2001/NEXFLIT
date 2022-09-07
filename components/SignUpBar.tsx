@@ -18,7 +18,7 @@ function SignUpBar() {
           </div>
           <Link href={"/login"}>
             <button className='flex items-center px-4 py-2 bg-red-600 hover:bg-red-500 m-auto semilg:py-0 semilg:w-[220px] semilg:h-[50px] lg:h-[65px] semilg:text-[1.25rem]'>
-              <span>Get started</span>
+              <span className='ml-1 lg:ml-2'>Get started</span>
               <span>
                 <ChevronRightIcon />
               </span>

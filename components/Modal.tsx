@@ -48,7 +48,7 @@ function Modal() {
     const [addedToList, setAddedToList] = useState(false)
 
     return <>
-        <div className="h-screen w-screen absolute top-0 bg-black/60">
+        <div className="h-screen w-screen fixed top-0 bg-black/60 z-50">
             <div className="relative top-[30px] bg-black/80 h-[90vh] z-50 rounded w-[90vw] left-[4vw] md:w-[70vw] md:left-[14.5vw] lg:w-[60vw] lg:left-[19.8vw] 2xl:w-[50vw] 2xl:left-[24.8vw]">
                 <ClearIcon className="z-50 absolute top-5 right-[2%] h-9 w-9 rounded-full text-white bg-black/50 cursor-pointer" onClick={() => setShowModal(false)} />
                 <div className="relative pt-[56.25%]">
@@ -91,13 +91,13 @@ function Modal() {
                         </div>
                     </div>
                 </div>
-                <div className="w-[96%] ml-[2%]">
+                <div className="w-[96%] ml-[2%] mt-[20px]">
                     <div className="flex space-x-5">
-                        <div className="flex-column basis-[70%]">
+                        <div className="flex-column basis-[70%] space-y-5">
                             <div><span className="text-[gray]">Release Date:</span> <span>{releasedDate}</span></div>
                             <div>{overview}</div>
                         </div>
-                        <div className="flex-clumn basis-[30%]">
+                        <div className="flex-column basis-[30%] space-y-5">
                             <div><span className="text-[gray]">Genres: </span> <span>{genres.map(genre => genre.name).join(', ')} </span></div>
                             <div><span className="text-[gray]">Languages: </span> <span>{languages.map(language => language.english_name).join(', ')} </span></div>
                         </div>

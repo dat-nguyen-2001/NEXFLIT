@@ -1,10 +1,15 @@
 import Link from "next/link";
 import SideFooter from "../components/SideFooter";
 import SignUpBar from "../components/SignUpBar";
+import Head from "next/head";
 
 function index() {
   return (
     <div>
+      <Head>
+        <title>Nexflit - Watch TV Shows Online, Watch Movies Online</title>
+        <link rel="icon" href="/icon.png" />
+      </Head>
       <div className="relative top-0 z-50">
         <div className="bg-black/50 absolute top-0 left-0 w-[98.9vw] h-[120vh]"></div>
         <div className="absolute top-6 flex mx-[4.45vw] items-center w-[90vw] ">
