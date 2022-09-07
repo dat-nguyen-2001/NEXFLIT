@@ -10,7 +10,7 @@ function index() {
         <div className="absolute top-6 flex mx-[4.45vw] items-center w-[90vw] ">
           <Link href={"/"}>
             <img
-              src="https://rb.gy/ulxxee"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
               className="cursor-pointer object-contain w-[120px] md:w-[170px] basis-1/12"
             />
           </Link>

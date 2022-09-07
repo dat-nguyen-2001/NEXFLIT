@@ -28,7 +28,7 @@ function Header() {
         <div className="flex basis-4/5 space-x-8">
           <Link href={"/"}>
             <img
-              src="https://rb.gy/ulxxee"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
               width={50}
               className="cursor-pointer object-contain lg:w-28 md:w-20 sm:w-16"
             />
@@ -51,7 +51,7 @@ function Header() {
           <Link href="/account">
             <div className="flex items-center w-6 lg:w-10">
               <img
-                src="https://rb.gy/g1pwyx"
+                src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
                 alt=""
                 className="cursor-pointer rounded"
                 onClick={logOut}

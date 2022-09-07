@@ -8,6 +8,9 @@ import requests from "../utils/request";
 import { AuthContext } from "../stores/AuthContext";
 import Footer from "../components/Footer";
 import { useContext, useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { modalState } from "../atoms/atomModal";
+import Modal from "../components/Modal";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -30,13 +33,15 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
-  const { user } = useContext(AuthContext);
-  const router = useRouter();
-  useEffect(() => {
-    if (!user) {
-      router.push("/login");
-    }
-  }, [user]);
+  // const { user } = useContext(AuthContext);
+  // const router = useRouter();
+  // useEffect(() => {
+  //   if (!user) {
+  //     router.replace("/login");
+  //   }
+  // }, [user]);
+
+  const showModal = useRecoilValue(modalState)
 
   return (
     <div className="relative">
@@ -60,6 +65,7 @@ const Home = ({
           <Footer />
         </section>
       </main>
+        {showModal && <Modal />}
     </div>
   );
 };

@@ -3,6 +3,10 @@ import { Movie } from "../typing";
 import baseUrl from "../utils/baseUrl";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { useRecoilState } from "recoil";
+import { modalState } from "../atoms/atomModal";
+import { movieState } from "../atoms/atomMovie";
+import { DocumentData } from "firebase/firestore";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -16,6 +20,9 @@ function Banner({ netflixOriginals }: Props) {
       netflixOriginals[3]
     );
   }, []);
+
+  const [showModal, setShowModal] = useRecoilState(modalState)
+  const [currentMovie, setCurrentMovie] = useRecoilState<Movie | DocumentData | null>(movieState)
 
   return (
     <div>
@@ -37,7 +44,7 @@ function Banner({ netflixOriginals }: Props) {
           </button>
           <button className="bannerBtn  bg-[rgba(110,111,108,255)]">
             <InfoOutlinedIcon className="w-5" />
-            <p className="md:h-[32px]">More Info</p>
+            <p className="md:h-[32px]" onClick={() => {setShowModal(true); setCurrentMovie(movie)}}>More Info</p>
           </button>
         </div>
       </div>

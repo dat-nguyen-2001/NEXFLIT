@@ -11,7 +11,7 @@ function login() {
 
         <Link href={"/"}>
           <img
-            src="https://rb.gy/ulxxee"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
             className="absolute top-5 left-16 cursor-pointer object-contain w-[170px]"
           />
         </Link>
