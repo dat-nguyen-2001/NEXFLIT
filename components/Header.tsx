@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { AuthContext } from "../stores/AuthContext";
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 
 import { SearchIcon } from "@heroicons/react/solid";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 function Header() {
-  const {logOut} = useContext(AuthContext);
+
+  const { logOut } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Fix the header when scrolling
@@ -25,6 +26,15 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [isSearching, setIsSearching] = useState(false)
+  const searchInput = useRef(null)
+
+  useEffect(() => {
+    if (document.activeElement !== searchInput.current) {
+      setIsSearching(false)
+    }
+  }, [])
 
   return (
     <header className={`${isScrolled && "bg-[#141414]"}`}>
@@ -43,14 +53,18 @@ function Header() {
             <li className="headerLink">Movies</li>
             <li className="headerLink">New & Popular</li>
             <li className="headerLink">My List</li>
-            <li className="headerLink">Browse by Languages</li>
           </ul>
         </div>
         <div className="flex justify-end items-center basis-1/5 space-x-5">
-          <SearchIcon className="cursor-pointer w-5 lg:w-6" />
-          <div className="hidden lg:inline">
-            <Link href={"/Kids"}>Kids</Link>
-          </div>
+          {isSearching ? <div className="absolute md:right-32 lg:relative lg:right-2 w-[250px] right-[15vw] bg-black/50 flex items-center h-[35px] border-white border-[1.5px]">
+            <SearchIcon className="cursor-pointer w-5 lg:w-6 left-1 absolute" onClick={() => setIsSearching(false)} />
+            <input
+              placeholder="Titles, Peoples, Genres"
+              ref={searchInput}
+              className="absolute top-0 left-10 bg-black/0 w-[80%] h-[100%] outline-none" />
+          </div> :
+            <SearchIcon className="cursor-pointer w-5 lg:w-6" onClick={() => setIsSearching(true)} />
+          }
           <NotificationsNoneIcon className="cursor-pointer hidden lg:inline w-5 lg:w-6" />
           <Link href="/account">
             <div className="flex items-center w-6 lg:w-10">
