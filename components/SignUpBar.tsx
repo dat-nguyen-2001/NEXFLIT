@@ -1,6 +1,7 @@
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 function SignUpBar() {
   return (
     <div className='w-[90%] m-auto min-w-[300px] xs:px-[10%] md:w-[73.7%] lg:px-[10%] lg:w-[81%] xl:px-[18%]'>

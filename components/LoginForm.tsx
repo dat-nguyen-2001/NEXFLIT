@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { AuthContext } from "../stores/AuthContext";
-import Link from "next/link";
+
+import { useState, useContext } from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 interface Inputs {
   email: string;
@@ -9,18 +9,26 @@ interface Inputs {
 }
 
 function LoginForm() {
-  const { signIn, error } = useContext(AuthContext);
+  const [login, setLogin] = useState(true)
+
+  const { signIn, signUp, error } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
-    signIn(email, password);
-    if (error) {
-      alert(error);
-      return;
+    if (login) {
+      await signIn(email, password);
+      if (error) {
+        throw new Error(error)
+      } else {
+        await signUp(email, password);
+        if (error) {
+          throw new Error(error)
+        }
+      }
     }
   };
-
+  // To check password's strength
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
 
@@ -29,7 +37,7 @@ function LoginForm() {
       className="relative space-y-8 rounded bg-black/75 py-10 px-10 md:mt-0 md:px-16 h-[500px]"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h1 className="text-4xl font-semibold">Sign In</h1>
+      <h1 className="text-4xl font-semibold">{login ? "Sign In" : "Sign Up"}</h1>
       <div className="space-y-4">
         <label className="inline-block w-full">
           <input
@@ -60,24 +68,14 @@ function LoginForm() {
           )}
         </label>
       </div>
-      <button
-        className="w-full rounded bg-[#E50914] py-3 font-semibold"
-        // onClick={() => setLogin(true)}
-        type="submit"
-      >
-        Sign In
+      <button className="w-full rounded bg-[#E50914] py-3 font-semibold" type="submit">
+        {login ? "Sign In" : "Sign Up"}
       </button>
       <div className="text-[gray]">
-        New to Netflix?{" "}
-        <Link href={"/"}>
-          <button
-            className="cursor-pointer text-white hover:underline"
-            // onClick={() => setLogin(false)}
-            type="submit"
-          >
-            Sign up now
-          </button>
-        </Link>
+        {login ? "New to Netflix?" : "Already have an account?"}{" "}
+        <button className="cursor-pointer text-white hover:underline" type="submit" onClick={() => setLogin(prevState => !prevState)}>
+          {login ? "Sign up now" : "Sign in now"}
+        </button>
       </div>
     </form>
   );

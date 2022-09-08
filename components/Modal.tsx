@@ -1,11 +1,13 @@
-import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/atomModal"
 import { Genre, Language, Movie } from "../typing";
 import { movieState } from "../atoms/atomMovie";
+
+import { useRecoilState, useRecoilValue } from "recoil"
 import { DocumentData } from "firebase/firestore";
 import { useEffect } from 'react'
 import ReactPlayer from 'react-player'
 import { useState } from 'react'
+
 import ClearIcon from '@mui/icons-material/Clear';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
@@ -18,7 +20,7 @@ import DoneIcon from '@mui/icons-material/Done';
 
 function Modal() {
     const [showModal, setShowModal] = useRecoilState(modalState);
-    const [movie, setMovie] = useRecoilState<Movie | DocumentData | null>(movieState);
+    const movie = useRecoilValue<Movie | DocumentData | null>(movieState);
     const [trailer, setTrailer] = useState('');
     const [genres, setGenres] = useState<Genre[]>([])
     const [overview, setOverview] = useState('');
@@ -94,12 +96,32 @@ function Modal() {
                 <div className="w-[96%] ml-[2%] mt-[20px]">
                     <div className="flex space-x-5">
                         <div className="flex-column basis-[70%] space-y-5">
-                            <div><span className="text-[gray]">Release Date:</span> <span>{releasedDate}</span></div>
+                            <div>
+                                <span className="text-[gray]">Release Date:
+                                </span>
+                                <span>
+                                    {releasedDate}
+                                </span>
+                            </div>
                             <div>{overview}</div>
                         </div>
                         <div className="flex-column basis-[30%] space-y-5">
-                            <div><span className="text-[gray]">Genres: </span> <span>{genres.map(genre => genre.name).join(', ')} </span></div>
-                            <div><span className="text-[gray]">Languages: </span> <span>{languages.map(language => language.english_name).join(', ')} </span></div>
+                            <div>
+                                <span className="text-[gray]">
+                                    Genres:
+                                </span>
+                                <span>
+                                    {genres.map(genre => genre.name).join(', ')}
+                                </span>
+                            </div>
+                            <div>
+                                <span className="text-[gray]">
+                                    Languages:
+                                </span>
+                                <span>
+                                    {languages.map(language => language.english_name).join(', ')}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,15 @@
-import { useEffect, useState } from "react";
-import { Movie } from "../typing";
 import baseUrl from "../utils/baseUrl";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { useRecoilState } from "recoil";
+import { Movie } from "../typing";
+
 import { modalState } from "../atoms/atomModal";
 import { movieState } from "../atoms/atomMovie";
+
+import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 import { DocumentData } from "firebase/firestore";
+
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
 interface Props {
   netflixOriginals: Movie[];

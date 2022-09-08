@@ -1,7 +1,9 @@
 import Link from "next/link";
+
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+
 function Footer() {
   return (
     <div>

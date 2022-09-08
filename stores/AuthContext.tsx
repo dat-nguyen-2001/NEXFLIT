@@ -1,19 +1,18 @@
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
   User,
 } from "firebase/auth";
 
 import { useRouter } from "next/router";
+
 import React, {
   createContext,
-  useContext,
-  useEffect,
   useMemo,
   useState,
 } from "react";
+
 import { auth } from "../firebase";
 
 interface Props {
@@ -66,7 +65,7 @@ export const AuthProvider = ({ children }: Props) => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
-        router.push("/browse");
+        router.replace("/browse");
       })
       .then(() => setLoading(false))
       .catch((err) => setError(err))

@@ -1,9 +1,11 @@
 import Thumbnail from "./Thumbnail";
 import { Movie } from "../typing";
+
+import { useRef, useState } from "react";
+
 import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { useRef, useState } from "react";
 
 interface Props {
   genre: string;
@@ -11,18 +13,18 @@ interface Props {
 }
 
 function Row({ genre, movies }: Props) {
+
+  // Enable Scrolling
   const rowRef = useRef<HTMLDivElement>(null);
   const [scrolling, setScrolling] = useState(false);
   const scroll = (direction: string) => {
     setScrolling(true);
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
-
       const scrollTo =
         direction === "left"
           ? scrollLeft - 0.5 * clientWidth
           : scrollLeft + 0.5 * clientWidth;
-
       rowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };

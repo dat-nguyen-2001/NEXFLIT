@@ -1,15 +1,15 @@
-import { DocumentData } from "firebase/firestore";
-import Image from "next/image";
-import { useRecoilState } from "recoil";
+import { Movie } from "../typing";
 import { modalState } from "../atoms/atomModal";
 import { movieState } from "../atoms/atomMovie";
-import { Movie } from "../typing";
+import Image from "next/image";
+
+import { DocumentData } from "firebase/firestore";
+import { useRecoilState } from "recoil";
 
 interface Props {
   movie: Movie;
 }
 function Thumbnail({ movie }: Props) {
-  // open modal and set movie to show on the modal
   const [showModal, setShowModal] = useRecoilState(modalState);
   const [currentMovie, setCurrentMovie] = useRecoilState<Movie | DocumentData | null>(movieState)
   const onShowModalHandler = function() {

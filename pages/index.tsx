@@ -1,6 +1,6 @@
-import Link from "next/link";
 import SideFooter from "../components/SideFooter";
 import SignUpBar from "../components/SignUpBar";
+import Link from "next/link";
 import Head from "next/head";
 
 function index() {

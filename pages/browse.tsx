@@ -1,16 +1,17 @@
-import Head from "next/head";
+import Modal from "../components/Modal";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
-import { Movie } from "../typing";
 import Row from "../components/Row";
-import { useRouter } from "next/router";
-import requests from "../utils/request";
-import { AuthContext } from "../stores/AuthContext";
+import Head from "next/head";
 import Footer from "../components/Footer";
-import { useContext, useEffect } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { AuthContext } from "../stores/AuthContext";
 import { modalState } from "../atoms/atomModal";
-import Modal from "../components/Modal";
+import requests from "../utils/request";
+import { Movie } from "../typing";
+
+import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import { useRecoilValue } from "recoil";
 
 interface Props {
   netflixOriginals: Movie[];

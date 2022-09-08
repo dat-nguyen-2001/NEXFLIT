@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { AuthContext } from "../stores/AuthContext";
+
+import { useState, useEffect, useContext } from "react";
+
 import { SearchIcon } from "@heroicons/react/solid";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../stores/AuthContext";
 
 function Header() {
   const {logOut} = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Fix the header when scrolling
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -22,6 +25,7 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center basis-full md:mx-4 lg:mx-7">
