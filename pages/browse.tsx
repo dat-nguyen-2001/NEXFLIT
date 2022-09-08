@@ -34,10 +34,10 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
-  const { user } = useContext(AuthContext);
   const router = useRouter();
+  const {user} = useContext(AuthContext)
   useEffect(() => {
-    if (!user) {
+    if (!sessionStorage.getItem('user')) {
       router.replace("/login");
     }
   }, [user]);

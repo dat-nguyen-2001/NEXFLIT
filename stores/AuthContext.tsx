@@ -1,3 +1,4 @@
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -53,6 +54,7 @@ export const AuthProvider = ({ children }: Props) => {
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
+        sessionStorage.setItem('user', JSON.stringify(userCredential.user))
         router.replace("/browse");
       })
       .then(() => setLoading(false))
@@ -63,9 +65,8 @@ export const AuthProvider = ({ children }: Props) => {
   const signUp = async (email: string, password: string) => {
     setLoading(true);
     await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setUser(userCredential.user);
-        router.replace("/browse");
+      .then(() => {
+        signIn(email, password)
       })
       .then(() => setLoading(false))
       .catch((err) => setError(err))
@@ -77,6 +78,8 @@ export const AuthProvider = ({ children }: Props) => {
     signOut(auth)
       .then(() => {
         setUser(null);
+        sessionStorage.removeItem('user');
+        router.replace('/login')
         setLoading(false);
       })
       .catch((err) => setError(err))

@@ -66,17 +66,14 @@ function Header() {
             <SearchIcon className="cursor-pointer w-5 lg:w-6" onClick={() => setIsSearching(true)} />
           }
           <NotificationsNoneIcon className="cursor-pointer hidden lg:inline w-5 lg:w-6" />
-          <Link href="/account">
-            <div className="flex items-center w-6 lg:w-10">
-              <img
-                src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
-                alt=""
-                className="cursor-pointer rounded"
-                onClick={logOut}
-              />
-              <ArrowDropDownIcon className="hidden md:inline" />
-            </div>
-          </Link>
+          <div className="flex items-center w-6 lg:w-10" onClick={logOut}>
+            <img
+              src="https://occ-0-1190-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABbme8JMz4rEKFJhtzpOKWFJ_6qX-0y5wwWyYvBhWS0VKFLa289dZ5zvRBggmFVWVPL2AAYE8xevD4jjLZjWumNo.png?r=a41"
+              alt=""
+              className="cursor-pointer rounded"
+            />
+            <ArrowDropDownIcon className="hidden md:inline" />
+          </div>
         </div>
       </div>
     </header>
