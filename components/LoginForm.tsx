@@ -11,20 +11,22 @@ interface Inputs {
 function LoginForm() {
   const [login, setLogin] = useState(true)
 
-  const { signIn, signUp, error } = useContext(AuthContext);
+  const {signIn, signUp, error } = useContext(AuthContext);
 
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
+    console.log(login)
     if (login) {
       await signIn(email, password);
       if (error) {
-        throw new Error(error)
-      } else {
-        await signUp(email, password);
-        if (error) {
-          throw new Error(error)
-        }
+        throw new Error(error);
+      }
+    } else {
+      await signUp(email, password);
+      if (error) {
+        alert(error);
+        return
       }
     }
   };

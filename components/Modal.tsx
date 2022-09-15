@@ -1,12 +1,13 @@
 import { modalState } from "../atoms/atomModal"
 import { Genre, Language, Movie } from "../typing";
 import { movieState } from "../atoms/atomMovie";
+import { myListState } from "../atoms/atomMyList";
+import { AuthContext } from "../stores/AuthContext";
 
 import { useRecoilState, useRecoilValue } from "recoil"
-import { DocumentData } from "firebase/firestore";
 import { useEffect } from 'react'
 import ReactPlayer from 'react-player'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import ClearIcon from '@mui/icons-material/Clear';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
@@ -19,8 +20,9 @@ import DoneIcon from '@mui/icons-material/Done';
 
 
 function Modal() {
+
     const [showModal, setShowModal] = useRecoilState(modalState);
-    const movie = useRecoilValue<Movie | DocumentData | null>(movieState);
+    const movie = useRecoilValue<Movie | null>(movieState);
     const [trailer, setTrailer] = useState('');
     const [genres, setGenres] = useState<Genre[]>([])
     const [overview, setOverview] = useState('');
@@ -28,13 +30,13 @@ function Modal() {
     const [languages, setLanguages] = useState<Language[]>([])
     useEffect(() => {
         if (!movie) return;
-
+        
         async function fetchMovie() {
             const data = await fetch(`https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'}/${movie?.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&append_to_response=videos`)
-                .then(res => res.json());
+            .then(res => res.json());
             // set the key to append to the Youtube link
             setTrailer(data.videos.results[0].key);
-
+            
             //set trailer's details
             setGenres(data.genres);
             setOverview(data.overview);
@@ -43,11 +45,26 @@ function Modal() {
         }
         fetchMovie()
     }, [movie])
-
+    
     // set properties for the trailer
     const [muted, setMuted] = useState(false);
     const [liked, setLiked] = useState(false);
-    const [addedToList, setAddedToList] = useState(false)
+    const [addedToList, setAddedToList] = useState(false);
+    
+    // const {user} = useContext(AuthContext);
+    
+    // const [myListMovies, setMyListMovies] = useRecoilState(myListState)
+    // useEffect(() => {
+    //     if(addedToList && movie !== null) {
+    //         if(myListMovies.includes(movie)) {
+    //             alert('Movie already added!')
+    //             return;
+    //         }
+    //         const newList = [...myListMovies, movie]
+    //         sessionStorage.setItem(JSON.stringify(user) , JSON.stringify(newList))
+    //         setMyListMovies(newList)
+    //     }
+    // }, [addedToList])
 
     return <>
         <div className="h-screen w-screen fixed top-0 bg-black/60 z-50">

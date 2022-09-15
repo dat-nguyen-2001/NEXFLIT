@@ -18,6 +18,7 @@
     "react-dom": "18.1.0",
     "react-hook-form": "^7.34.2",
     "react-player": "^2.10.1",
+    "react-spinners": "^0.13.4",
     "react-use-cookie": "^1.4.0",
     "recoil": "^0.7.5",
     "redis": "^4.3.1",

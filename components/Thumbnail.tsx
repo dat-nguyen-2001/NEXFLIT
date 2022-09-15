@@ -11,7 +11,7 @@ interface Props {
 }
 function Thumbnail({ movie }: Props) {
   const [showModal, setShowModal] = useRecoilState(modalState);
-  const [currentMovie, setCurrentMovie] = useRecoilState<Movie | DocumentData | null>(movieState)
+  const [currentMovie, setCurrentMovie] = useRecoilState<Movie | null>(movieState)
   const onShowModalHandler = function() {
     setShowModal(true);
     setCurrentMovie(movie);

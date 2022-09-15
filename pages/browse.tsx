@@ -10,8 +10,10 @@ import requests from "../utils/request";
 import { Movie } from "../typing";
 
 import { useRouter } from "next/router";
-import { useContext, useEffect } from "react";
-import { useRecoilValue } from "recoil";
+import { useContext, useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { myListState } from "../atoms/atomMyList";
+
 
 interface Props {
   netflixOriginals: Movie[];
@@ -35,15 +37,28 @@ const Home = ({
   documentaries,
 }: Props) => {
   const router = useRouter();
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   useEffect(() => {
     if (!sessionStorage.getItem('user')) {
       router.replace("/login");
     }
   }, [user]);
 
-  const showModal = useRecoilValue(modalState)
+  // const [myListMovies, setMyListMovies] = useRecoilState(myListState);
 
+  // useEffect(() => {
+  //   console.log('RUNNING...');
+  //   console.log(user)
+  //   const storedList = sessionStorage.getItem(JSON.stringify(user));
+  //   console.log('STORE:',storedList)
+  //   if (storedList) {
+  //     setMyListMovies(JSON.parse(storedList))
+  //   } else {
+  //     setMyListMovies([])
+  //   }
+  // }, [])
+
+  const showModal = useRecoilValue(modalState);
   return (
     <div className="relative">
       <Head>
@@ -54,10 +69,12 @@ const Home = ({
       <Header />
       <main className="relative">
         <Banner netflixOriginals={netflixOriginals} />
-        <section className="absolute top-[50vw] sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 pl-5 md:pl-8 lg:pl-16 pb-[20px]">
+        <section className="absolute top-[40vw] right-0 sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 left-4 sm:left-6 lg:left-16 pb-[20px]">
           <Row genre={"Netflix Original"} movies={netflixOriginals} />
           <Row genre={"Trending Now"} movies={trendingNow} />
           <Row genre={"Top Rated"} movies={topRated} />
+          {/* Render my list movies */}
+          {/* {myListMovies.length > 0 && <Row genre={"My List"} movies={myListMovies} />} */}
           <Row genre={"Action Movies"} movies={actionMovies} />
           <Row genre={"Comedy Movies"} movies={comedyMovies} />
           <Row genre={"Horror Movies"} movies={horrorMovies} />

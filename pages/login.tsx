@@ -2,8 +2,31 @@ import LoginForm from "../components/LoginForm";
 import SideFooter from "../components/SideFooter";
 import Link from "next/link";
 import Head from "next/head";
+import {useEffect, useState} from 'react';
+import {CircularProgress } from '@mui/material';
+
 
 function login() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+  if (loading) {
+    return (<>
+      <Link href={"/"}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          className="cursor-pointer object-contain w-[120px] md:w-[170px] absolute top-6 left-[4.5vw]"
+        />
+      </Link>
+      <div className="bg-black/10 flex items-center w-screen h-screen">
+        <CircularProgress color="error" size={60} className="m-auto" />
+      </div>
+    </>
+    );
+  }
 
   return (
     <div>
@@ -17,7 +40,7 @@ function login() {
         <Link href={"/"}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-            className="absolute top-5 left-16 cursor-pointer object-contain w-[170px]"
+            className="absolute top-6 left-[4.5vw] cursor-pointer object-contain w-[170px]"
           />
         </Link>
 

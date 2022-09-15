@@ -2,8 +2,31 @@ import SideFooter from "../components/SideFooter";
 import SignUpBar from "../components/SignUpBar";
 import Link from "next/link";
 import Head from "next/head";
+import {CircularProgress } from '@mui/material';
+import { useEffect, useState } from 'react';
+
 
 function index() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 3000)
+  }, [])
+  if (loading) {
+    return (<>
+      <Link href={"/"}>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          className="cursor-pointer object-contain w-[120px] md:w-[170px] absolute top-6 left-[4.5vw]"
+        />
+      </Link>
+      <div className="bg-black/10 flex items-center w-screen h-screen">
+        <CircularProgress color="error" size={60} className="m-auto" />
+      </div>
+    </>
+    );
+  }
   return (
     <div>
       <Head>

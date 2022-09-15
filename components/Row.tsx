@@ -42,7 +42,7 @@ function Row({ genre, movies }: Props) {
       <div className="flex group relative">
         {scrolling ? (
           <ChevronLeftIcon
-            className={`scrollBtn left-0`}
+            className={`scrollBtn left-0 rounded-l-sm`}
             onClick={() => scroll("left")}
           />
         ) : null}
@@ -55,7 +55,7 @@ function Row({ genre, movies }: Props) {
           ))}
         </div>
         <ChevronRightIcon
-          className={`scrollBtn right-0`}
+          className={`scrollBtn right-0 rounded-r-sm`}
           onClick={() => scroll("right")}
         />
       </div>

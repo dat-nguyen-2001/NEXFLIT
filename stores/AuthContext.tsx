@@ -31,9 +31,9 @@ interface ContextProps {
 
 export const AuthContext = createContext<ContextProps>({
   user: null,
-  signIn: async () => {},
-  signUp: async () => {},
-  logOut: async () => {},
+  signIn: async () => { },
+  signUp: async () => { },
+  logOut: async () => { },
   error: null,
   loading: false,
 });
@@ -47,14 +47,14 @@ export const AuthProvider = ({ children }: Props) => {
 
   const [user, setUser] = useState<User | null>(null);
 
-
+  
 
   const signIn = async (email: string, password: string) => {
     setLoading(true);
     await signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser(userCredential.user);
-        sessionStorage.setItem('user', JSON.stringify(userCredential.user))
+        sessionStorage.setItem('user', JSON.stringify(userCredential.user));
         router.replace("/browse");
       })
       .then(() => setLoading(false))
@@ -66,10 +66,12 @@ export const AuthProvider = ({ children }: Props) => {
     setLoading(true);
     await createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
-        signIn(email, password)
+        alert("User Created Successfully!");
       })
-      .then(() => setLoading(false))
-      .catch((err) => setError(err))
+      .then(() =>signIn(email, password))
+      .catch((err) => {
+        console.log('HEY, SOMETHING WRONG HERE!')
+        setError(err)})
       .finally(() => setLoading(false));
   };
 
