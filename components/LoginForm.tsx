@@ -16,11 +16,10 @@ function LoginForm() {
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
-    console.log(login)
     if (login) {
       await signIn(email, password);
       if (error) {
-        throw new Error(error);
+        return
       }
     } else {
       await signUp(email, password);

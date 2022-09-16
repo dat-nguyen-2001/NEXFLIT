@@ -57,8 +57,10 @@ export const AuthProvider = ({ children }: Props) => {
         sessionStorage.setItem('user', JSON.stringify(userCredential.user));
         router.replace("/browse");
       })
-      .then(() => setLoading(false))
-      .catch((err) => setError(err))
+      .then(() => {
+        setLoading(false)
+        })
+      .catch((err) => alert(err))
       .finally(() => setLoading(false));
   };
 
@@ -81,7 +83,7 @@ export const AuthProvider = ({ children }: Props) => {
       .then(() => {
         setUser(null);
         sessionStorage.removeItem('user');
-        router.replace('/login')
+        router.replace('/register')
         setLoading(false);
       })
       .catch((err) => setError(err))

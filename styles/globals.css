@@ -48,4 +48,14 @@
     @apply bg-black/60 w-9 h-9 flex items-center cursor-pointer rounded-full
   }
 
+  #sign_up_input:focus ~ #sign_up_placeholder,
+  #sign_up_input:not(:focus):valid ~ #sign_up_placeholer{
+    top: -20px;
+    bottom: 10px;
+    left: 15px;
+    font-size: 12px;
+    opacity: 1;
+  }
+
+
 }

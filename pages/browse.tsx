@@ -10,9 +10,9 @@ import requests from "../utils/request";
 import { Movie } from "../typing";
 
 import { useRouter } from "next/router";
-import { useContext, useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { myListState } from "../atoms/atomMyList";
+import { useContext, useEffect } from "react";
+import {useRecoilValue } from "recoil";
+
 
 
 interface Props {
@@ -40,23 +40,10 @@ const Home = ({
   const { user } = useContext(AuthContext)
   useEffect(() => {
     if (!sessionStorage.getItem('user')) {
-      router.replace("/login");
+      router.replace("/register");
     }
   }, [user]);
 
-  // const [myListMovies, setMyListMovies] = useRecoilState(myListState);
-
-  // useEffect(() => {
-  //   console.log('RUNNING...');
-  //   console.log(user)
-  //   const storedList = sessionStorage.getItem(JSON.stringify(user));
-  //   console.log('STORE:',storedList)
-  //   if (storedList) {
-  //     setMyListMovies(JSON.parse(storedList))
-  //   } else {
-  //     setMyListMovies([])
-  //   }
-  // }, [])
 
   const showModal = useRecoilValue(modalState);
   return (
@@ -73,8 +60,6 @@ const Home = ({
           <Row genre={"Netflix Original"} movies={netflixOriginals} />
           <Row genre={"Trending Now"} movies={trendingNow} />
           <Row genre={"Top Rated"} movies={topRated} />
-          {/* Render my list movies */}
-          {/* {myListMovies.length > 0 && <Row genre={"My List"} movies={myListMovies} />} */}
           <Row genre={"Action Movies"} movies={actionMovies} />
           <Row genre={"Comedy Movies"} movies={comedyMovies} />
           <Row genre={"Horror Movies"} movies={horrorMovies} />
@@ -112,6 +97,7 @@ export async function getServerSideProps() {
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
   ]);
+
 
   return {
     props: {

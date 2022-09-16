@@ -1,13 +1,11 @@
 import { modalState } from "../atoms/atomModal"
 import { Genre, Language, Movie } from "../typing";
 import { movieState } from "../atoms/atomMovie";
-import { myListState } from "../atoms/atomMyList";
-import { AuthContext } from "../stores/AuthContext";
 
 import { useRecoilState, useRecoilValue } from "recoil"
 import { useEffect } from 'react'
 import ReactPlayer from 'react-player'
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 
 import ClearIcon from '@mui/icons-material/Clear';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
@@ -17,6 +15,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import DoneIcon from '@mui/icons-material/Done';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 
 function Modal() {
@@ -30,13 +29,14 @@ function Modal() {
     const [languages, setLanguages] = useState<Language[]>([])
     useEffect(() => {
         if (!movie) return;
-        
+
+        // fetch the movie
         async function fetchMovie() {
             const data = await fetch(`https://api.themoviedb.org/3/${movie?.media_type === 'tv' ? 'tv' : 'movie'}/${movie?.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&append_to_response=videos`)
-            .then(res => res.json());
+                .then(res => res.json());
             // set the key to append to the Youtube link
             setTrailer(data.videos.results[0].key);
-            
+
             //set trailer's details
             setGenres(data.genres);
             setOverview(data.overview);
@@ -45,26 +45,11 @@ function Modal() {
         }
         fetchMovie()
     }, [movie])
-    
+
     // set properties for the trailer
     const [muted, setMuted] = useState(false);
     const [liked, setLiked] = useState(false);
     const [addedToList, setAddedToList] = useState(false);
-    
-    // const {user} = useContext(AuthContext);
-    
-    // const [myListMovies, setMyListMovies] = useRecoilState(myListState)
-    // useEffect(() => {
-    //     if(addedToList && movie !== null) {
-    //         if(myListMovies.includes(movie)) {
-    //             alert('Movie already added!')
-    //             return;
-    //         }
-    //         const newList = [...myListMovies, movie]
-    //         sessionStorage.setItem(JSON.stringify(user) , JSON.stringify(newList))
-    //         setMyListMovies(newList)
-    //     }
-    // }, [addedToList])
 
     return <>
         <div className="h-screen w-screen fixed top-0 bg-black/60 z-50">
@@ -90,7 +75,7 @@ function Modal() {
                             </div>
                             <div className="iconWrapper">
                                 {addedToList ?
-                                    <DoneIcon className="w-5 h-5 mx-auto md:w-7 md:h-7" onClick={() => setAddedToList(false)} />
+                                    <DoneIcon className="w-5 h-5 mx-auto md:w-7 md:h-7" />
                                     : <AddIcon className="w-5 h-5 mx-auto md:w-7 md:h-7" onClick={() => setAddedToList(true)} />
                                 }
                             </div>
@@ -100,6 +85,12 @@ function Modal() {
                                     : <ThumbUpOffAltIcon className="w-5 h-5 mx-auto md:w-7 md:h-7" onClick={() => setLiked(true)} />
                                 }
                             </div>
+                            {addedToList ?
+                                <div className="iconWrapper">
+                                    <DeleteIcon className="w-5 h-5 mx-auto" onClick={() => setAddedToList(false)} />
+                                </div>
+                                : null}
+
                         </div>
                         <div className="iconWrapper basis-[5.5%]">
                             {muted ?

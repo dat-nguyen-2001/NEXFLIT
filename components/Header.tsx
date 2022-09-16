@@ -40,7 +40,7 @@ function Header() {
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center basis-full md:mx-4 lg:mx-7">
         <div className="flex basis-4/5 space-x-8">
-          <Link href={"/"}>
+          <Link href={"/browse"}>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
               width={50}

@@ -6,7 +6,6 @@ import { movieState } from "../atoms/atomMovie";
 
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import { DocumentData } from "firebase/firestore";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
@@ -20,12 +19,12 @@ function Banner({ netflixOriginals }: Props) {
   const [movie, setMovie] = useState<Movie | null>(null);
   useEffect(() => {
     setMovie(
-      netflixOriginals[8]
+      netflixOriginals[1]
     );
   }, []);
 
   const [showModal, setShowModal] = useRecoilState(modalState)
-  const [currentMovie, setCurrentMovie] = useRecoilState<Movie | DocumentData | null>(movieState)
+  const [currentMovie, setCurrentMovie] = useRecoilState<Movie | null>(movieState)
 
   return (
     <div>

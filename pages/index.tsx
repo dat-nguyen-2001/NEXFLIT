@@ -43,7 +43,7 @@ function index() {
             />
           </Link>
           <div className="basis-11/12 flex justify-end">
-            <Link href={"/login"}>
+            <Link href={"/register"}>
               <button className="w-[70px] h-[30px] md:w-[100px] md:h-[40px] bg-red-700 rounded">
                 Sign In
               </button>
