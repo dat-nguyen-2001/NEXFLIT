@@ -41,10 +41,12 @@ function Row({ genre, movies }: Props) {
       </h2>
       <div className="flex group relative">
         {scrolling ? (
-          <ChevronLeftIcon
-            className='scrollBtn left-0 rounded-l-sm h-[100%]'
-            onClick={() => scroll("left")}
-          />
+          <div className='absolute left-0 rounded-l-sm h-[100%] flex flex-col items-center m-auto w-12 top-0 bottom-0 cursor-pointer z-50 bg-black/50 hover:bg-black/70'
+            onClick={() => scroll("left")}>
+            <ChevronLeftIcon
+              className="my-auto w-9 h-9"
+            />
+          </div>
         ) : null}
         <div
           className="flex items-center space-x-3 scrollbar-hide overflow-hidden overflow-x-scroll max-w-[94.6vw]"
@@ -54,10 +56,11 @@ function Row({ genre, movies }: Props) {
             <Thumbnail key={movie.id} movie={movie} />
           ))}
         </div>
-        <div className='scrollBtn right-0 rounded-r-sm h-[100%]'
+        <div className='absolute right-0 rounded-r-sm h-[100%] flex flex-col items-center m-auto w-12 top-0 bottom-0 cursor-pointer z-50 bg-black/50 hover:bg-black/70'
           onClick={() => scroll("right")}>
-        <ChevronRightIcon
-        />
+          <ChevronRightIcon
+            className="my-auto w-9 h-9"
+          />
         </div>
       </div>
     </div>
