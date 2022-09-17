@@ -53,7 +53,7 @@ function login() {
           <SideFooter />
         </div>
 
-        <div className="w-screen overflow-hidden">
+        <div>
           <img
             src="https://assets.nflxext.com/ffe/siteui/vlv3/0f07b807-7be1-457d-be88-eb9153d5d4e9/c9061c43-8a1d-46b1-a5e4-9b6faddf4536/VN-en-20220815-popsignuptwoweeks-perspective_alpha_website_small.jpg"
             className="min-w-[1200px] h-[120vh] w-screen"

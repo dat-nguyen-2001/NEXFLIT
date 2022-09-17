@@ -34,7 +34,7 @@ function index() {
         <link rel="icon" href="/icon.png" />
       </Head>
       <div className="relative top-0 z-50">
-        <div className="bg-black/50 absolute top-0 left-0 w-screen h-[120vh]"></div>
+        <div className="bg-black/50 absolute top-0 left-0 w-[99vw] h-[120vh]"></div>
         <div className="absolute top-6 flex mx-[4.45vw] items-center w-[90vw] ">
           <Link href={"/"}>
             <img
@@ -59,10 +59,10 @@ function index() {
           <SideFooter />
         </div>
 
-        <div className="w-[100%] overflow-hidden">
+        <div className="w-screen overflow-hidden">
           <img
             src="https://assets.nflxext.com/ffe/siteui/vlv3/0f07b807-7be1-457d-be88-eb9153d5d4e9/c9061c43-8a1d-46b1-a5e4-9b6faddf4536/VN-en-20220815-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-            className="min-w-[1100px] h-[100vh] w-[100%]"
+            className="min-w-[1100px] h-[100vh] w-screen"
           />
         </div>
       </div>
