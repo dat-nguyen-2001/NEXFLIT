@@ -56,7 +56,7 @@ const Home = ({
       <Header />
       <main className="relative">
         <Banner netflixOriginals={netflixOriginals} />
-        <section className="absolute top-[40vw] sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 left-4 sm:left-6 lg:left-16 pb-[20px]">
+        <section className="absolute top-[40vw] -right-1 sm:top-[42vw] middle:top-[45vw] 2xl:top-[42vw] space-y-10 left-4 sm:left-6 lg:left-16 pb-[20px]">
           <Row genre={"Netflix Original"} movies={netflixOriginals} />
           <Row genre={"Trending Now"} movies={trendingNow} />
           <Row genre={"Top Rated"} movies={topRated} />

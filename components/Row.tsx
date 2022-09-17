@@ -47,7 +47,7 @@ function Row({ genre, movies }: Props) {
           />
         ) : null}
         <div
-          className="flex items-center space-x-2 scrollbar-hide overflow-hidden overflow-x-scroll max-w-[94vw]"
+          className="flex items-center space-x-3 scrollbar-hide overflow-hidden overflow-x-scroll max-w-[94.6vw]"
           ref={rowRef}
         >
           {movies?.map((movie) => (
