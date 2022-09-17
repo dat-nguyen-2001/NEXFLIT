@@ -17,7 +17,7 @@
   }
 
   .scrollBtn {
-    @apply absolute m-auto w-12 top-0 bottom-0 cursor-pointer z-50 hidden group-hover:inline bg-black/50 hover:bg-black/70;
+    @apply absolute m-auto w-12 h-[100%] top-0 bottom-0 cursor-pointer z-50 hidden group-hover:inline bg-black/50 hover:bg-black/70;
   }
 
   .bannerBtn {
