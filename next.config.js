@@ -1,3 +1,5 @@
+const { LocationSearchingTwoTone } = require('@mui/icons-material');
+
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: false,
