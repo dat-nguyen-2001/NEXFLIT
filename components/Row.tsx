@@ -50,7 +50,7 @@ function Row({ genre, movies }: Props) {
           className="flex items-center space-x-2 scrollbar-hide overflow-hidden overflow-x-scroll max-w-[94vw]"
           ref={rowRef}
         >
-          {movies.map((movie) => (
+          {movies?.map((movie) => (
             <Thumbnail key={movie.id} movie={movie} />
           ))}
         </div>
