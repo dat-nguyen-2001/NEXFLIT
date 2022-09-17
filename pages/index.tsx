@@ -34,7 +34,7 @@ function index() {
         <link rel="icon" href="/icon.png" />
       </Head>
       <div className="relative top-0 z-50">
-        <div className="bg-black/50 absolute top-0 left-0 w-[98.9vw] h-[120vh]"></div>
+        <div className="bg-black/50 absolute top-0 left-0 w-screen h-[120vh]"></div>
         <div className="absolute top-6 flex mx-[4.45vw] items-center w-[90vw] ">
           <Link href={"/"}>
             <img
