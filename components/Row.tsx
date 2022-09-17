@@ -54,10 +54,11 @@ function Row({ genre, movies }: Props) {
             <Thumbnail key={movie.id} movie={movie} />
           ))}
         </div>
+        <div className='scrollBtn right-0 rounded-r-sm h-[100%]'
+          onClick={() => scroll("right")}>
         <ChevronRightIcon
-          className='scrollBtn right-0 rounded-r-sm h-[100%]'
-          onClick={() => scroll("right")}
         />
+        </div>
       </div>
     </div>
   );
