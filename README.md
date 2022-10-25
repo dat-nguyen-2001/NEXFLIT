@@ -1,27 +1,44 @@
-# Next.js + Tailwind CSS Example
+# ![Nexflit](https://img.shields.io/badge/Netflix-E50914?style=for-the-badge&logo=netflix&logoColor=white)
+A movies web app that allows user to watch favorite movies (actually trailers)
+![nexflit](https://user-images.githubusercontent.com/94024020/197683670-702d442d-dd1d-4d8d-8da8-aa7b0b72f935.png)
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+### Build With
 
-## Deploy your own
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MaterialUI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+### Installation
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+1. Clone the repo
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+```sh
+    git clone https://github.com/dat-nguyen-2001/NEXFLIT.git
 ```
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+2. Install NPM packages
+
+```sh
+    npm install
 ```
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+3. Run
+
+```sh
+    npm run start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Future development
+
+As the web is developed by only one developer (me),due to the limited time, knowledge and resources, it could not serve full features of a movie webapp like real Netflix, AppleTV, etc. In the future, by updating new technologies as well as when there's demand, I'll add some more features to the app:
+
+1. Change from the open API to my own database and APIs.
+2. Allow user to setup payment with Stripe
+
+### Contact
+If you want to contact me you can reach me at datnguyenftu210@gmail.com.
+My linkedin : https://www.linkedin.com/in/dat-nguyen-van-77557321b/
+
